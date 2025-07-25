@@ -15,7 +15,7 @@ engine.setProperty("voice", "brazil")
 # engine.say(conteudo)
 # engine.runAndWait()
 
-with open("frase.txt", "r", encoding="utf-8") as arquivo:
+with open(r"assistente de voz\dados\frase.txt", "r", encoding="utf-8") as arquivo:
     conteudo=arquivo.read()
     engine.say(conteudo)
     engine.runAndWait()
