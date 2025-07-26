@@ -12,7 +12,7 @@ def cria_audio(mensagem):
 
 cria_audio("Para conhecermos os amigos é necessário passar pelo sucesso e pela desgraça. No sucesso, verificamos a quantidade e, na desgraça, a qualidade")
 
-frase=input("digite uma frase")
+frase=input("digite uma frase  :")
 cria_audio(frase)
 
 with open("assistente de voz/dados/frase.txt","r",encoding="utf-8")as texto:
