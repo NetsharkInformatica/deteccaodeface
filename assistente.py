@@ -4,6 +4,10 @@ from gtts import gTTS
 from playsound import playsound
 import os
 import sys
+import so_funcoes
+import noticias_funcoes
+import moeda_funcoes
+
 
 def cria_audio(audio, mensagem):
     # Garante que o diretório existe
@@ -39,8 +43,35 @@ def executa_comandos(acao):
     if "fechar assistente" in acao:
         cria_audio("assistente de voz/dados/adeus.mp3", "Até logo!")
         sys.exit()
-    else:
-        cria_audio("assistente de voz/dados/resposta.mp3", f"Você disse: {acao}")
+
+    elif "hora" in acao:
+      # cria_audio("mensagem.mp3",so_funcoes.verifica_hora())
+        cria_audio("assistente de voz/dados/mensagem.mp3", so_funcoes.verifica_hora())
+
+    elif "desligar" in acao:
+       so_funcoes.desliga_computador_uma_hor()
+    elif "reiniciar"in acao:
+        so_funcoes.reinicia_computador()
+
+    elif "cancelar" in acao:
+        so_funcoes.cancela_desligamento()
+
+    elif "notícias" in acao:
+        cria_audio("assistente de voz/dados/mensagem.mp3",noticias_funcoes.ultimas_noticias())
+
+    elif "cotação" in acao:
+        if "dólar" in acao:
+            cria_audio("assistente de voz/dados/mensagem.mp3", moeda_funcoes.cotacao_moeda("dolar"))
+        elif "euro" in acao:
+            cria_audio("assistente de voz/dados/mensagem.mp3", moeda_funcoes.cotacao_moeda("euro"))
+        elif "libra" in acao:
+            cria_audio("assistente de voz/dados/mensagem.mp3", moeda_funcoes.cotacao_moeda("libra"))
+        elif "bitcoin" in acao:
+            cria_audio("assistente de voz/dados/mensagem.mp3", moeda_funcoes.cotacao_moeda("bitcoin"))
+
+    
+    """ else:
+        cria_audio("assistente de voz/dados/resposta.mp3", f"Você disse: {acao}") """
 
 def main():
     cria_audio("assistente de voz/dados/bemvindo.mp3", "Olá, sou a Ranicléia. Em que posso te ajudar?")
