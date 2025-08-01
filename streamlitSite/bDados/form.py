@@ -11,6 +11,8 @@ nota= st.slider("Pontuação do filme: ", min_value=0.0 , max_value=10.0 )
 if st.button('Adicionar'):
     dados.inserir_dados(nome,ano,nota)
     st.success('Filme registrado')
+elif st.button('Cancelar'):
+    pass
     
     
 filmes= dados.lista_dados()
